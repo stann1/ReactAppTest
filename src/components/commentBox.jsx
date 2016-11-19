@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Comment from './comment'
 import CommentForm from './commentForm'
+import $ from 'jquery'
 
 export default class CommentBox extends Component {
   constructor() {
@@ -32,13 +33,14 @@ export default class CommentBox extends Component {
   }
 
   _fetchComments() {
-    // $.ajax({
-    //   method: 'GET',
-    //   url: 'comments.json',
-    //   success: (comments) => {
-    //     this.setState({comments: comments})
-    //   }
-    // });
+    $.ajax({
+      method: 'GET',
+      url: '/comments.json',
+      success: (comments) => {
+        this.setState({comments: comments});
+        this.setState({showComments: true});
+      }
+    });
   }
   
   _getPopularMessage(commentCount) {

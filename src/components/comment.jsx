@@ -28,14 +28,13 @@ export default class Comment extends Component{
         </p>
         <div className="comment-actions">
           <CommentConfirmation onConfirm={this._handleDelete.bind(this)} >Delete comment?</CommentConfirmation>
-          <a href="#" onClick={this._toggleAbuse.bind(this)}>Report as Abuse</a>
+          <CommentConfirmation onConfirm={this._toggleAbuse.bind(this)} >Report abuse</CommentConfirmation>
         </div>
       </div>
     );
   }
 
-  _toggleAbuse(event){
-    event.preventDefault();
+  _toggleAbuse(){
     this.setState({isAbusive: !this.state.isAbusive})
   }
 

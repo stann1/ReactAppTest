@@ -36,5 +36,8 @@ export default class CommentConfirmation extends Component {
   _confirmDelete(e) {
     e.preventDefault();
     this.props.onConfirm();    
+    this.setState({
+      showConfirm: !this.state.showConfirm
+    });
   }
 }
