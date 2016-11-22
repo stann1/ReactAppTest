@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Comment from './comment';
 import CommentForm from './commentForm';
-import Client from '../api/Client';
+import Store from '../../api/Store';
 
 export default class CommentBox extends Component {
   constructor() {
@@ -33,7 +33,7 @@ export default class CommentBox extends Component {
   }
 
   _fetchComments() {
-    Client.getComments((data) => {
+    Store.getComments((data) => {
         console.log(data);
         this.setState({comments: data.comments});
         this.setState({showComments: true});

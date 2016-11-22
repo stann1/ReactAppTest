@@ -30,8 +30,8 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { 
+const Store = { 
   search: search,
   getComments: searchComments
  };
-export default Client;
+export default Store;
