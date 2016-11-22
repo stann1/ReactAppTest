@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CommentBox from './components/commentBox'
-import StoryBox from './components/storyBox'
+import Header from "./components/common/header";
 
 class App extends Component {
   render() {
@@ -12,12 +11,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload afdf.
-        </p>
         <div className="col-md-4 col-md-offset-4">
-          <StoryBox />
-          <CommentBox />
+          <p><Header /></p>
+          {this.props.children}
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class StoryBox extends Component {
+export default class StoryPage extends Component {
   render(){
     const now = new Date();
     const stories = ["React", "JSX", "JavaScript", "Programming"];

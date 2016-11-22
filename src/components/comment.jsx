@@ -28,6 +28,7 @@ export default class Comment extends Component{
         </p>
         <div className="comment-actions">
           <CommentConfirmation onConfirm={this._handleDelete.bind(this)} >Delete comment?</CommentConfirmation>
+          <span> | </span>
           <CommentConfirmation onConfirm={this._toggleAbuse.bind(this)} >Report abuse</CommentConfirmation>
         </div>
       </div>
