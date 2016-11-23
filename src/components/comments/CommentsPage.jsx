@@ -3,7 +3,7 @@ import Comment from './comment';
 import CommentForm from './commentForm';
 import Store from '../../api/Store';
 
-export default class CommentBox extends Component {
+export default class CommentsPage extends Component {
   constructor() {
     super();
 

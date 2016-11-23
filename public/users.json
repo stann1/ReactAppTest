@@ -1,0 +1,6 @@
+{
+    "users": [
+        { "id": 1, "username": "Clu", "name": "Clueless idiot", "role":"stormtrooper" },
+        { "id": 2, "username": "Anne Droid", "name": "Annorexical Android", "role":"helmet polisher" }
+    ]
+}

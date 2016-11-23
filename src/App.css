@@ -16,6 +16,13 @@
   margin-right: -4.166666%;
 }
 
+.sub-header {
+    background-color: #e5e5e5;
+    height: 30px;
+    color: #606060;
+    visibility: hidden;
+}
+
 .App-intro {
   font-size: large;
 }
@@ -25,5 +32,8 @@
   to { transform: rotate(360deg); }
 }
 
+.table th {
+  text-align: center
+}
 /* ========= navbar ================= */
 

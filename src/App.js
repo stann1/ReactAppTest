@@ -18,6 +18,9 @@ class App extends Component {
                 <img src={logo} className="App-logo" alt="logo" />
               </div>
               <div className="col-lg-10 col-lg-offset-1">
+                <div className="sub-header">
+                  Content                  
+                </div>
                 {this.props.children}
               </div>
              </div>

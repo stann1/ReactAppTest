@@ -14,6 +14,13 @@ function searchComments(cb){
     .then(cb)
 }
 
+function getUsers(cb){
+  return fetch('/users.json', {accept: 'application/json'})
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb)
+}
+
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -32,6 +39,7 @@ function parseJSON(response) {
 
 const Store = { 
   search: search,
-  getComments: searchComments
+  getComments: searchComments,
+  getUsers: getUsers
  };
 export default Store;

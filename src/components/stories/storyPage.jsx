@@ -6,7 +6,6 @@ export default class StoryPage extends Component {
     const stories = ["React", "JSX", "JavaScript", "Programming"];
     return (
       <div>
-        <h3>Stories</h3>
         <p className="lead">Current time: {now.toTimeString()}</p>
         <ul className="list-group">
           { stories.map((s) => <li className="list-group-item">{s}</li>) }
