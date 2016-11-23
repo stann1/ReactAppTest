@@ -11,7 +11,7 @@ export default class CommentForm extends Component{
     render(){
         return (
         <form className="comment-form form-horizontal" onSubmit={this._handleSubmit.bind(this)}>
-            <label>New comment</label>
+            <h4>New comment</h4>
             <div className="comment-form-fields form-group">
                 <input className="form-control" placeholder="Name:" ref={(input) => this._author = input} />
                 <textarea className="form-control" placeholder="Comment:" ref={(input) => this._body = input} onKeyUp={this._getCharacterCount.bind(this)}  ></textarea>

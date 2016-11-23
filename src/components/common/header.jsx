@@ -18,7 +18,7 @@ const Header = () => {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                         </button>
-                        <IndexLink to="/" className="navbar-brand" activeClassName="active">Consent.io</IndexLink>
+                        <IndexLink to="/" className="navbar-brand" activeClassName="active">SiteTitle</IndexLink>
                     </div>
                 </div>
                 <div className="collapse navbar-collapse">
