@@ -104,8 +104,13 @@
     .navbar-fixed-side .navbar-nav .dropdown-menu>li>a:hover,
     .navbar-fixed-side .navbar-nav .dropdown-menu>li>a:focus {
         background-color: #404040;
-        color: #adadad
+        color: #adadad;
     }
+
+    .navbar-fixed-side .navbar-nav>li>a.active{
+        border-left: 4px solid #a2ad00;
+    }
+
     .navbar-fixed-side .dropdown>.dropdown-toggle,
     .navbar-fixed-side .dropdown-menu>.dropdown-header {
         background-color: transparent !important;

@@ -1,9 +1,10 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js'
 import './App.css';
 import Header from "./components/common/header";
-import './navbar-fixed-side.css';
 
 class App extends Component {
   render() {
@@ -12,8 +13,10 @@ class App extends Component {
         
         <div className="container-fluid">
           <div className="row">
-            <Header />
-            <div className="col-sm-9 col-lg-10">
+            <div className="col-sm-3 col-lg-1">
+              <Header />
+            </div>
+            <div className="col-sm-9 col-lg-11">
               <div className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
               </div>

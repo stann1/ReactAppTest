@@ -10,5 +10,6 @@ export default(
         <IndexRoute component={CommentsPage} />
         <Route path="stories" component={StoryPage} />
         <Route path="users" component={UsersPage} />
+        <Route path="comments" component={CommentsPage} />
     </Route>
 );
