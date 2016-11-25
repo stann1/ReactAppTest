@@ -24,11 +24,11 @@ const Header = () => {
                 <ul className="nav navbar-nav">
                     <li><Link to="/stories" activeClassName="active">Stories</Link></li>
                     <li><Link to="/users" activeClassName="active">Users</Link></li>
+                    <li><Link to="/settings" activeClassName="active">Settings</Link></li>
                     <li className="dropdown">
-                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span className="caret"></span></a>
                         <ul className="dropdown-menu">
                             <li><Link to="/comments">Comments</Link></li>
-                            <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li><a href="#">Separated link</a></li>
                         </ul>

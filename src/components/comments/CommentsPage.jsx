@@ -33,7 +33,7 @@ export default class CommentsPage extends Component {
   }
 
   _fetchComments() {
-    Store.getComments((data) => {
+    Store.getAll('comments', (data) => {
         console.log(data);
         this.setState({comments: data.comments});
         this.setState({showComments: true});

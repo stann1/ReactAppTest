@@ -1,21 +1,19 @@
 /* eslint-disable no-undef */
-function search(query, cb) {
-  return fetch(`api/votes?q=${query}`, {
+function getAll(entities, cb) {
+  let apiUrl = `/${entities}.json`;
+
+  return fetch(apiUrl, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
     .then(cb);
 }
 
-function searchComments(cb){
-  return fetch('/comments.json', {accept: 'application/json'})
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(cb)
-}
+// eslint-disable-next-line
+function search(entities, query, cb){
+  let apiUrl = `api/${entities}?q=${query}`;
 
-function getUsers(cb){
-  return fetch('/users.json', {accept: 'application/json'})
+  return fetch(apiUrl, {accept: 'application/json'})
     .then(checkStatus)
     .then(parseJSON)
     .then(cb)
@@ -38,8 +36,6 @@ function parseJSON(response) {
 }
 
 const Store = { 
-  search: search,
-  getComments: searchComments,
-  getUsers: getUsers
+  getAll: getAll
  };
 export default Store;

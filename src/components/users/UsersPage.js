@@ -22,7 +22,7 @@ export default class UsersPage extends Component{
     }
 
     _fetchListData(){
-        Store.getUsers((data) => {
+        Store.getAll('users', (data) => {
             this.setState({users: data.users});
         })
     }
