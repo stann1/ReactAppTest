@@ -35,7 +35,7 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Store = { 
+const TopicsStore = { 
   getAll: getAll
  };
-export default Store;
+export default TopicsStore;

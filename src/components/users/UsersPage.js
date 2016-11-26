@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserList from './usersList';
-import Store from '../../api/Store';
+import UsersStore from '../../api/UsersStore';
 
 export default class UsersPage extends Component{
     constructor(){
@@ -22,8 +22,8 @@ export default class UsersPage extends Component{
     }
 
     _fetchListData(){
-        Store.getAll('users', (data) => {
-            this.setState({users: data.users});
+        UsersStore.getAll().then((data) => {
+            this.setState({users: data});
         })
     }
 }

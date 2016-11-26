@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import SettingsForm from './settingsForm';
+import ProfileStore from '../../api/ProfileStore';
+import { Router, browserHistory } from 'react-router'
 
 export default class SettingsPage extends Component{
-    constructor() {
-        super();
+    constructor(props, context) {
+        super(props, context);
 
         this.state = {
             currentUser: {},
@@ -25,27 +27,26 @@ export default class SettingsPage extends Component{
     }
 
     componentWillMount(){
-        let currUsr = {"id": 1,
-         "username": "buzz-kill",
-         "firstname": "Bai",
-         "lastname":"Pesho",
-         "language": "English(UK)",
-          "phone": "0882345678"
-        };
-        this.setState({currentUser: currUsr});
+        ProfileStore.getMyProfile().then(p => {
+            this.setState({currentUser: p});
+        })
     }
 
-    _updateUser(firstname, lastname, phone, language){
-        let updatedUser = {"id": 1,
-         "username": "buzz-kill",
+    _updateUser(id, username, firstname, lastname, phone, language){
+        let user = {"id": id,
+         "username": username,
          "firstname": firstname,
          "lastname": lastname,
          "language": language,
           "phone": phone
         };
 
-        console.log(updatedUser);
-        this.setState({currentUser: updatedUser});
-        this.setState({showSuccess: true});
+        console.log(user);
+
+        ProfileStore.save(user).then(updatedUser => {
+            browserHistory.push('/');
+            //this.setState({showSuccess: true});
+        })
+       
     }
 }

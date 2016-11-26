@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Comment from './comment';
 import CommentForm from './commentForm';
-import Store from '../../api/Store';
+import CommentsStore from '../../api/CommentsStore';
 
 export default class CommentsPage extends Component {
   constructor() {
@@ -33,9 +33,9 @@ export default class CommentsPage extends Component {
   }
 
   _fetchComments() {
-    Store.getAll('comments', (data) => {
+    CommentsStore.getAll().then(data => {
         console.log(data);
-        this.setState({comments: data.comments});
+        this.setState({comments: data});
         this.setState({showComments: true});
       })
   }
@@ -73,15 +73,16 @@ export default class CommentsPage extends Component {
 
   _addComment(commentAuthor, commentBody) {
     let comment = {
-      id: Math.floor(Math.random() * (9999 - this.state.comments.length + 1)) + this.state.comments.length,
       author: commentAuthor,
       body: commentBody,
       avatarUrl: 'images/default-avatar.png'
     };
 
-    this.setState({
-      comments: this.state.comments.concat([comment])
-    });
+    CommentsStore.save(comment).then(c => {
+        this.setState({
+        comments: this.state.comments.concat([c])
+      });
+    });    
   }
 
   _deleteComment(commentID) {

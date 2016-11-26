@@ -1,7 +1,0 @@
-{
-    "stories" : [
-      {"id": 1, "name": "React"},
-      {"id": 2, "name": "Jsx"},
-      {"id": 3, "name": "Javascript"},
-      {"id": 4, "name": "Programming"}]
-}
