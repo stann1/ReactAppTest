@@ -1,6 +1,6 @@
 const users = [
-        { "id": 1, "username": "Clu", "name": "Clueless idiot", "role":"stormtrooper" },
-        { "id": 2, "username": "Anne Droid", "name": "Annorexical Android", "role":"helmet polisher" },
+        { "id": 1, "username": "Clu", "name": "Clueless idiot", "role":"stormtrooper", "email": "somemail@gmail.com" },
+        { "id": 2, "username": "Anne Droid", "name": "Annorexical Android", "role":"helmet polisher", "email": "otheremail@gmail.com" },
     ]
 
 class UsersStore {
@@ -12,11 +12,11 @@ class UsersStore {
 
     static getById(id){
         return new Promise((resolve, reject) => {
-            let user = users.find((c) => c.id === id);
-            if(!user.length){
+            let user = users.find((c) => c.id == id);
+            if(!user){
                 reject(`user with id ${id} was not found`);
             }
-            resolve(Object.assign({}, user[0]));
+            resolve(Object.assign({}, user));
         })
     }
 

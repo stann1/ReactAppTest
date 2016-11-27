@@ -1,6 +1,6 @@
 const comments = [
-        { "id": 1, "author": "Clu", "body": "Just say no to love!", "avatarUrl":"images/default-avatar.png" },
-        { "id": 2, "author": "Anne Droid", "body": "I wanna know what love is...", "avatarUrl":"images/default-avatar.png" }
+        { "id": 1, "author": "Clu", "body": "Just say no!", "avatarUrl":"images/default-avatar.png" },
+        { "id": 2, "author": "Ann Droid", "body": "This is ridiculous...", "avatarUrl":"images/default-avatar.png" }
     ];
 
 

@@ -4,11 +4,13 @@ import {Link} from 'react-router';
 const UserListRow = ({user}) => {
     return (
         <tr>
-            <td>{user.id}</td>
-            <td><Link to={'/user/' + user.id}>{user.username}</Link></td>
+            <td><Link to={'/users/edit/' + user.id}>{user.username}</Link></td>
             <td>{user.name}</td>
             <td>{user.role}</td>
-            <td><Link to={'/user/edit/' + user.id} className="btn btn-primary">Edit</Link></td>
+            <td>{user.email}</td>
+            <td><Link to={'/users/edit/' + user.id} className="btn btn-primary">Edit</Link><span>{"\u00a0"}</span>
+                <Link to={'/users/edit/' + user.id + '/permisions'} className="btn btn-success">Permissions</Link>
+            </td>
         </tr>
     );
 };

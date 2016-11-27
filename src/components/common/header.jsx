@@ -22,7 +22,7 @@ const Header = () => {
             </div>
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
-                    <li><Link to="/stories" activeClassName="active">Stories</Link></li>
+                    <li><Link to="/stories" activeClassName="active">Topics</Link></li>
                     <li><Link to="/users" activeClassName="active">Users</Link></li>
                     <li><Link to="/settings" activeClassName="active">Settings</Link></li>
                     <li className="dropdown">

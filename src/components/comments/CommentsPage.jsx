@@ -20,7 +20,7 @@ export default class CommentsPage extends Component {
   render() {
     const comments = this._getComments();
     return(
-      <div className="comment-box">
+      <div className="comment-box col-sm-8 col-sm-offset-2">
         <CommentForm addComment={this._addComment.bind(this)} />
 
         {this._getPopularMessage(comments.length)}

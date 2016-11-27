@@ -55,13 +55,13 @@ export default class SettingsPage extends Component{
     _saveProfile(event){
         event.preventDefault();
         ProfileStore.save(this.state.currentUser).then(updatedUser => {
-            //  toastr.options = {
-            //     "positionClass": "toast-bottom-full-width",
-            //     "showDuration": 300,
-            //     "hideDuration": 5000,
-            //     "timeOut": 5000,
-            //     "extendedTimeOut": 1000
-            // }
+             toastr.options = {
+                "positionClass": "toast-bottom-full-width",
+                "showDuration": 300,
+                "hideDuration": 5000,
+                "timeOut": 5000,
+                "extendedTimeOut": 1000
+            }
             toastr.success('Profiled data saved.');
            
             browserHistory.push('/');

@@ -6,8 +6,6 @@ const SettingsForm = ({profile, allLocales, onSave, onChange, saving, errors}) =
     
         return (
             <div className="row">
-                <div className="toastr-top-center">                   
-                </div>
                 <form className="form-horizontal col-sm-6 col-sm-offset-3">
                     <h2>Your account info</h2>
                     <br />

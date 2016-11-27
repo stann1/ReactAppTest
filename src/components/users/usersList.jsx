@@ -4,13 +4,13 @@ import UserListRow from './userListRow'
 const UsersList = ({users}) => {
     return(
         <div className="table-responsive">
-            <table className="table">
+            <table className="table table-condensed">
                 <thead>
                     <tr>
-                        <th>&nbsp;</th>
                         <th>Username</th>
                         <th>Name</th>
                         <th>Role</th>
+                        <th>Email</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
