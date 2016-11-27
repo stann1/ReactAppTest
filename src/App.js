@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'toastr/build/toastr.min.css';
 import './App.css';
 import Header from "./components/common/header";
 

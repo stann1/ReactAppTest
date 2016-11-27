@@ -1,5 +1,5 @@
 const profiles = [
-            {"id": 1, "username": "buzz-kill", "password": "*encrypted*", "firstname": "Bai", "lastname":"Pesho", "language": "English(UK)", "phone": "0882345678"}
+            {"id": 1, "username": "buzz-kill", "password": "******", "firstname": "Bai", "lastname":"Pesho", "language": "English(UK)", "phone": "0882345678"}
 ];
 
 class ProfileStore {
@@ -12,7 +12,7 @@ class ProfileStore {
     static getMyProfile(){
         let id = 1;  // Hardcoded for now
         return new Promise((resolve, reject) => {
-            let profile = profiles.find((c) => c.id == id);
+            let profile = profiles.find((c) => c.id == id); // eslint-disable-line
             if(!profile){
                 reject(`profile with id ${id} was not found`);
             }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SettingsForm from './settingsForm';
 import ProfileStore from '../../api/ProfileStore';
-import { Router, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
+import toastr from 'toastr';
 
 export default class SettingsPage extends Component{
     constructor(props, context) {
@@ -9,15 +10,24 @@ export default class SettingsPage extends Component{
 
         this.state = {
             currentUser: {},
+            locales:[],
+            errors:{},
+            saving:false,
             showSuccess: false
         };
     }
 
     render(){
-        let curr = this.state.currentUser;
         return(
             <div className="settings-form">
-                <SettingsForm user={curr} updateUser={this._updateUser.bind(this)} />
+                <SettingsForm 
+                    profile={this.state.currentUser} 
+                    onChange={this._updateProfileState.bind(this)}
+                    onSave={this._saveProfile.bind(this)}
+                    saving={this.state.saving}
+                    errors={this.state.errors}
+                    allLocales={this.state.locales}
+                 />
                 <br/>
                 {this.state.showSuccess &&
                     <div className="alert alert-success row" role="alert">Profiled data saved successfully.</div>
@@ -29,24 +39,32 @@ export default class SettingsPage extends Component{
     componentWillMount(){
         ProfileStore.getMyProfile().then(p => {
             this.setState({currentUser: p});
+            this.setState({locales: [{value: 1, text: "English(UK)"}, {value: 2, text: "German"}, {value: 3, text: "Bulgarian"}]});
+            this.setState({errors: Object.assign({}, {"title": ""})});
         })
     }
 
-    _updateUser(id, username, firstname, lastname, phone, language){
-        let user = {"id": id,
-         "username": username,
-         "firstname": firstname,
-         "lastname": lastname,
-         "language": language,
-          "phone": phone
-        };
+    _updateProfileState(event){
+        let field = event.target.name;
+        let userProfile = this.state.currentUser;;
+        userProfile[field] = event.target.value;
+        
+        return this.setState({currentUser: userProfile});
+    }
 
-        console.log(user);
-
-        ProfileStore.save(user).then(updatedUser => {
+    _saveProfile(event){
+        event.preventDefault();
+        ProfileStore.save(this.state.currentUser).then(updatedUser => {
+            //  toastr.options = {
+            //     "positionClass": "toast-bottom-full-width",
+            //     "showDuration": 300,
+            //     "hideDuration": 5000,
+            //     "timeOut": 5000,
+            //     "extendedTimeOut": 1000
+            // }
+            toastr.success('Profiled data saved.');
+           
             browserHistory.push('/');
-            //this.setState({showSuccess: true});
         })
-       
     }
 }
