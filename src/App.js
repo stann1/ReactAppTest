@@ -1,10 +1,12 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'toastr/build/toastr.min.css';
-import './App.css';
+import jquery from 'jquery';
+window.$ = window.jQuery=jquery;
+require('bootstrap/dist/css/bootstrap.min.css');
+require('bootstrap/dist/js/bootstrap.min.js');
+require('toastr/build/toastr.min.css');
+require('./App.css');
 import Header from "./components/common/header";
 
 class App extends Component {

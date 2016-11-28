@@ -12,7 +12,7 @@ class UsersStore {
 
     static getById(id){
         return new Promise((resolve, reject) => {
-            let user = users.find((c) => c.id == id);
+            let user = users.find((c) => c.id == id); // eslint-disable-line
             if(!user){
                 reject(`user with id ${id} was not found`);
             }
