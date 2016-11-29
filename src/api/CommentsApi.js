@@ -4,7 +4,7 @@ const comments = [
     ];
 
 
-class CommentsStore {
+class CommentsApi {
     static getAll() {
         return new Promise((resolve, reject) => {
             resolve(Object.assign([], comments));
@@ -36,4 +36,4 @@ class CommentsStore {
     }
 }
 
-export default CommentsStore;
+export default CommentsApi;

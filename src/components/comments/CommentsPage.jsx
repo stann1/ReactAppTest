@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Comment from './comment';
 import CommentForm from './commentForm';
-import CommentsStore from '../../api/CommentsStore';
+import CommentsApi from '../../api/CommentsApi';
 
 export default class CommentsPage extends Component {
   constructor() {
@@ -33,7 +33,7 @@ export default class CommentsPage extends Component {
   }
 
   _fetchComments() {
-    CommentsStore.getAll().then(data => {
+    CommentsApi.getAll().then(data => {
         console.log(data);
         this.setState({comments: data});
         this.setState({showComments: true});
@@ -78,7 +78,7 @@ export default class CommentsPage extends Component {
       avatarUrl: 'images/default-avatar.png'
     };
 
-    CommentsStore.save(comment).then(c => {
+    CommentsApi.save(comment).then(c => {
         this.setState({
         comments: this.state.comments.concat([c])
       });

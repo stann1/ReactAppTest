@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TopicsStore from '../../api/TopicsStore';
+import TopicsApi from '../../api/TopicsApi';
 import StoryList from './storyList';
 
 export default class StoryPage extends Component {
@@ -16,7 +16,7 @@ export default class StoryPage extends Component {
     }
 
     _fetchListData(){
-        TopicsStore.getAll().then(data => {
+        TopicsApi.getAll().then(data => {
             this.setState({stories: data});
         })
     }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import UsersStore from '../../api/UsersStore';
+import UsersApi from '../../api/UsersApi';
 import UserForm from './userForm';
-import { browserHistory } from 'react-router';
+//import { browserHistory } from 'react-router';
 import toastr from 'toastr';
 
 class ManageUserPage extends Component {
@@ -25,7 +25,7 @@ class ManageUserPage extends Component {
 
     componentWillMount(){
         let userId = this.props.params.id;
-        UsersStore.getById(userId).then(userData => {
+        UsersApi.getById(userId).then(userData => {
             this.setState({user: userData});
         })
     }

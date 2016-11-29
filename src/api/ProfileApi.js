@@ -2,7 +2,7 @@ const profiles = [
             {"id": 1, "username": "buzz-kill", "password": "******", "firstname": "Bai", "lastname":"Pesho", "language": "English(UK)", "phone": "0882345678"}
 ];
 
-class ProfileStore {
+class ProfileApi {
     static getAll() {
         return new Promise((resolve, reject) => {
             resolve(Object.assign([], profiles));
@@ -34,4 +34,4 @@ class ProfileStore {
     }
 }
 
-export default ProfileStore;
+export default ProfileApi;

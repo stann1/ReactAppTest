@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SettingsForm from './settingsForm';
-import ProfileStore from '../../api/ProfileStore';
+import ProfileApi from '../../api/ProfileApi';
 import { browserHistory } from 'react-router';
 import toastr from 'toastr';
 
@@ -37,7 +37,7 @@ export default class SettingsPage extends Component{
     }
 
     componentWillMount(){
-        ProfileStore.getMyProfile().then(p => {
+        ProfileApi.getMyProfile().then(p => {
             this.setState({currentUser: p});
             this.setState({locales: [{value: 1, text: "English(UK)"}, {value: 2, text: "German"}, {value: 3, text: "Bulgarian"}]});
             this.setState({errors: Object.assign({}, {"title": ""})});
@@ -54,7 +54,7 @@ export default class SettingsPage extends Component{
 
     _saveProfile(event){
         event.preventDefault();
-        ProfileStore.save(this.state.currentUser).then(updatedUser => {
+        ProfileApi.save(this.state.currentUser).then(updatedUser => {
              toastr.options = {
                 "positionClass": "toast-bottom-full-width",
                 "showDuration": 300,

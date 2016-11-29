@@ -3,7 +3,7 @@ const users = [
         { "id": 2, "username": "Anne Droid", "name": "Annorexical Android", "role":"helmet polisher", "email": "otheremail@gmail.com" },
     ]
 
-class UsersStore {
+class UsersApi {
     static getAll() {
         return new Promise((resolve, reject) => {
             resolve(Object.assign([], users));
@@ -12,7 +12,7 @@ class UsersStore {
 
     static getById(id){
         return new Promise((resolve, reject) => {
-            let user = users.find((c) => c.id == id);
+            let user = users.find((c) => c.id === id);
             if(!user){
                 reject(`user with id ${id} was not found`);
             }
@@ -35,4 +35,4 @@ class UsersStore {
     }
 }
 
-export default UsersStore;
+export default UsersApi;

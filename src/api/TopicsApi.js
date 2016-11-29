@@ -5,7 +5,7 @@ const topics = [
       {"id": 4, "name": "Programming"}
       ];
 
-class TopicsStore {
+class TopicsApi {
     static getAll() {
         return new Promise((resolve, reject) => {
             resolve(Object.assign([], topics));
@@ -37,4 +37,4 @@ class TopicsStore {
     }
 }
 
-export default TopicsStore;
+export default TopicsApi;
