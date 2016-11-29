@@ -44,6 +44,27 @@ export default class SettingsPage extends Component{
         })
     }
 
+    validProfileForm(){
+        let formIsValid = true;
+        let error = {};
+
+        if (this.state.currentUser.username.length < 3) {
+            error.title = "Username must be at least 3 characters.";
+            formIsValid = false; 
+        }
+        if (this.state.currentUser.firstname.length < 1) {
+            error.title = "First name cannot be empty.";
+            formIsValid = false; 
+        }
+        if (this.state.currentUser.lastname.length < 1) {
+            error.title = "Last name cannot be empty.";
+            formIsValid = false; 
+        }
+
+        this.setState({errors: error});
+        return formIsValid;
+    }
+
     _updateProfileState(event){
         let field = event.target.name;
         let userProfile = this.state.currentUser;;
@@ -54,6 +75,10 @@ export default class SettingsPage extends Component{
 
     _saveProfile(event){
         event.preventDefault();
+        if(!this.validProfileForm()){
+            return;
+        }
+        
         ProfileApi.save(this.state.currentUser).then(updatedUser => {
              toastr.options = {
                 "positionClass": "toast-bottom-full-width",
@@ -66,5 +91,5 @@ export default class SettingsPage extends Component{
            
             browserHistory.push('/');
         })
-    }
+    }    
 }
