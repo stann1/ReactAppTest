@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import UsersApi from '../../api/UsersApi';
+import UserStore from '../../stores/userStore';
+import UserActions from'../../actions/userActions';
 import UserForm from './userForm';
-//import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import toastr from 'toastr';
 
 class ManageUserPage extends Component {
@@ -13,21 +14,28 @@ class ManageUserPage extends Component {
             errors: {},
             saving: false
         };
+
+        this.onChange = this.onChange.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        debugger;
-        // if (this.props.params.id != nextProps.user.id) {
-        // // Necessary to populate form when existing course is loaded directly.
-        //     this.setState({user: Object.assign({}, nextProps.user)});
-        // }
+        this.setState({user: UserStore.getById(nextProps.params.id)});
     }
 
-    componentWillMount(){
-        let userId = this.props.params.id;
-        UsersApi.getById(userId).then(userData => {
-            this.setState({user: userData});
-        })
+    componentWillMount(){ 
+        UserStore.addChangeListener(this.onChange);  
+    }
+
+    componentDidMount(){
+        UserActions.getUser(this.props.params.id);
+    }
+
+    componentWillUnmount(){
+        UserStore.removeChangeListener(this.onChange);
+    }
+
+     onChange() {
+        this.setState({user: UserStore.getById(this.props.params.id)});
     }
 
     render() {
@@ -51,6 +59,8 @@ class ManageUserPage extends Component {
 
     _saveUser(event){
         event.preventDefault();
+        console.log(this.state.user);
+        UserActions.updateUser(this.state.user);
          toastr.options = {
                 "positionClass": "toast-bottom-full-width",
                 "showDuration": 300,
@@ -58,7 +68,8 @@ class ManageUserPage extends Component {
                 "timeOut": 5000,
                 "extendedTimeOut": 1000
             }
-        toastr.warning('Saving of users is not yet implemented.');
+        toastr.success('User saved.');
+        browserHistory.push('/users')
     }
 }
 

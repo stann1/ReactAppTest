@@ -1,9 +1,9 @@
 const users = [
-        { "id": 1, "username": "Clu", "name": "Clueless idiot", "role":"stormtrooper", "email": "somemail@gmail.com" },
-        { "id": 2, "username": "Anne Droid", "name": "Annorexical Android", "role":"helmet polisher", "email": "otheremail@gmail.com" },
+        { id: 1, "username": "Clu", "name": "Clueless idiot", "role":"stormtrooper", "email": "somemail@gmail.com" },
+        { id: 2, "username": "Anne Droid", "name": "Annorexical Android", "role":"helmet polisher", "email": "otheremail@gmail.com" },
     ]
 
-class UsersApi {
+class UserStore {
     static getAll() {
         return new Promise((resolve, reject) => {
             resolve(Object.assign([], users));
@@ -12,7 +12,7 @@ class UsersApi {
 
     static getById(id){
         return new Promise((resolve, reject) => {
-            let user = users.find((c) => c.id === id);
+            let user = users.find((c) => c.id === parseInt(id,10));
             if(!user){
                 reject(`user with id ${id} was not found`);
             }
@@ -35,4 +35,4 @@ class UsersApi {
     }
 }
 
-export default UsersApi;
+export default UserStore;

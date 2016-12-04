@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserList from './usersList';
-import UsersApi from '../../api/UsersApi';
+import UserStore from '../../stores/userStore';
+import UserActions from'../../actions/userActions';
 
 export default class UsersPage extends Component{
     constructor(){
@@ -9,10 +10,24 @@ export default class UsersPage extends Component{
         this.state = {
             users: []
         }
+
+        this.onChange = this.onChange.bind(this);
     }
 
-    componentWillMount(){
-        this._fetchListData()
+    componentWillMount(){ 
+        UserStore.addChangeListener(this.onChange);  
+    }
+
+    componentDidMount(){
+        UserActions.getUsers();
+    }
+
+    componentWillUnmount(){
+        UserStore.removeChangeListener(this.onChange);
+    }
+
+     onChange() {
+        this._fetchListData();
     }
 
     render(){
@@ -22,8 +37,7 @@ export default class UsersPage extends Component{
     }
 
     _fetchListData(){
-        UsersApi.getAll().then((data) => {
-            this.setState({users: data});
-        })
+        let users = UserStore.getAll();
+        this.setState({users: users});
     }
 }
