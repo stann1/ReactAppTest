@@ -5,6 +5,14 @@ import UserForm from './userForm';
 import { browserHistory } from 'react-router';
 import toastr from 'toastr';
 
+const _toastrOptions = {
+                "positionClass": "toast-bottom-full-width",
+                "showDuration": 300,
+                "hideDuration": 5000,
+                "timeOut": 5000,
+                "extendedTimeOut": 1000
+            }
+
 class ManageUserPage extends Component {
     constructor(props, context) {
         super(props, context);
@@ -45,6 +53,7 @@ class ManageUserPage extends Component {
                 onChange={this._updateUserState.bind(this)} 
                 onSave={this._saveUser.bind(this)} 
                 saving={this.state.saving} 
+                errors={this.state.errors}
              />
         );
     }
@@ -59,18 +68,42 @@ class ManageUserPage extends Component {
 
     _saveUser(event){
         event.preventDefault();
-        console.log(this.state.user);
+        toastr.options = _toastrOptions;
+        if(!this._validProfileForm()){
+            return;
+        }
+        
         UserActions.updateUser(this.state.user);
-         toastr.options = {
-                "positionClass": "toast-bottom-full-width",
-                "showDuration": 300,
-                "hideDuration": 5000,
-                "timeOut": 5000,
-                "extendedTimeOut": 1000
-            }
         toastr.success('User saved.');
         browserHistory.push('/users')
     }
+
+    _validProfileForm(){
+        let formIsValid = true;
+        let error = {};
+
+        if (this.state.user.username.length < 3) {
+            error.username = "Username must be at least 3 characters.";
+            formIsValid = false; 
+        }
+        if (this.state.user.name.length < 1) {
+            error.name = "Name cannot be empty.";
+            formIsValid = false; 
+        }
+        if (this.state.user.role.length < 1) {
+            error.role = "Role cannot be empty.";
+            formIsValid = false; 
+        }
+        if (this.state.user.email.length < 1) {
+            error.email = "Email address cannot be empty.";
+            formIsValid = false; 
+        }
+
+        this.setState({errors: error});
+        return formIsValid;
+    }
 }
+
+
 
 export default ManageUserPage;

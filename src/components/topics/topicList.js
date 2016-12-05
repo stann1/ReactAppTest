@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const StoryList = ({stories}) => {
+const TopicList = ({topics}) => {
 
-    let allStories = stories;
+    let allTopics = topics;
     return (
         <div className="container-fluid">
             <div className="page-header">
@@ -17,7 +17,7 @@ const StoryList = ({stories}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allStories.map((s) => {
+                        {allTopics.map((s) => {
                             return (
                                 <tr key={s.id}>
                                     <td>{s.name}</td>
@@ -33,8 +33,8 @@ const StoryList = ({stories}) => {
     );
 };
 
-StoryList.propTypes = {
-    stories: PropTypes.array.isRequired,
+TopicList.propTypes = {
+    topics: PropTypes.array.isRequired,
 };
 
-export default StoryList;
+export default TopicList;

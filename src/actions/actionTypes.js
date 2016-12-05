@@ -1,4 +1,9 @@
 export const CREATE_USER = "CREATE_USER";
 export const UPDATE_USER = "UPDATE_USER";
-export const INITIALIZE_USERS = "INITIALIZE_USERS";
-export const INITIALIZE_USER = "INITIALIZE_USER";
+export const RECEIVE_USERS = "RECEIVE_USERS";
+export const RECEIVE_USER = "RECEIVE_USER";
+
+export const CREATE_TOPIC = "CREATE_TOPIC";
+export const UPDATE_TOPIC = "UPDATE_TOPIC";
+export const RECEIVE_TOPICS = "RECEIVE_TOPICS";
+export const RECEIVE_TOPIC = "RECEIVE_TOPIC";

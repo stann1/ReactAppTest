@@ -50,11 +50,11 @@ Dispatcher.register(function(action){
             _users.splice(usrIndex, 1, action.user);
             UserStore.emitChange();
             break;
-        case ActionTypes.INITIALIZE_USERS:
+        case ActionTypes.RECEIVE_USERS:
             setUsers(action.users);
             UserStore.emitChange();
             break;
-        case ActionTypes.INITIALIZE_USER:
+        case ActionTypes.RECEIVE_USER:
             setUser(action.user);
             UserStore.emitChange();
             break;

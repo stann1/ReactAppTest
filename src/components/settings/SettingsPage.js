@@ -49,15 +49,15 @@ export default class SettingsPage extends Component{
         let error = {};
 
         if (this.state.currentUser.username.length < 3) {
-            error.title = "Username must be at least 3 characters.";
+            error.username = "Username must be at least 3 characters.";
             formIsValid = false; 
         }
         if (this.state.currentUser.firstname.length < 1) {
-            error.title = "First name cannot be empty.";
+            error.firstname = "First name cannot be empty.";
             formIsValid = false; 
         }
         if (this.state.currentUser.lastname.length < 1) {
-            error.title = "Last name cannot be empty.";
+            error.lastname = "Last name cannot be empty.";
             formIsValid = false; 
         }
 

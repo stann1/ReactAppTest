@@ -6,7 +6,7 @@ const UserActions = {
     getUsers(){
         UsersApi.getAll().then(users => {
             Dispatcher.dispatch({
-                actionType: ActionTypes.INITIALIZE_USERS,
+                actionType: ActionTypes.RECEIVE_USERS,
                 users: users
             });
         });
@@ -14,7 +14,7 @@ const UserActions = {
     getUser(userId){
         UsersApi.getById(userId).then(user => {
             Dispatcher.dispatch({
-                actionType: ActionTypes.INITIALIZE_USER,
+                actionType: ActionTypes.RECEIVE_USER,
                 user: user
             });
         })
