@@ -4,7 +4,7 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('build') {
+        stage('Install dependencies') {
             steps {
 		sh 'echo "Building my first pipeline..."'
                 sh 'npm install'
@@ -13,6 +13,11 @@ pipeline {
 	stage('Test') {
 	    steps {
 	        sh 'npm test'
+	    }
+	}
+	stage('Build') {
+	    steps {
+	        sh 'npm run build'
 	    }
 	}
     }
