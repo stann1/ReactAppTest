@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        CI = 'true'
+    }
     stages {
         stage('build') {
             steps {
@@ -7,5 +10,10 @@ pipeline {
                 sh 'npm --version'
             }
         }
+	stage('Test') {
+	    steps {
+	        sh 'npm test'
+	    }
+	}
     }
 }
