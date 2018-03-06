@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-		sh 'echo "Building my first pipeline..."'
+		sh 'echo "Building my branch pipeline..."'
                 sh 'npm install'
             }
         }
